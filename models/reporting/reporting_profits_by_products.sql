@@ -1,14 +1,4 @@
-SELECT PRODUCTID, 
-    PRODUCTNAME,
-    CATEGORY,
-    SUBCATEGORY,
-    SUM(ORDERPROFIT) AS PROFIT
-FROM {{ ref('stg_orders') }}
-GROUP BY  PRODUCTID,
-PRODUCTNAME,
-CATEGORY,
-SUBCATEGORY
-ORDER BY PRODUCTID,
-PRODUCTNAME,
-CATEGORY,
-SUBCATEGORY 
+select productid, productname, category, subcategory, sum(orderprofit) as profit
+from {{ ref("stg_orders") }}
+group by productid, productname, category, subcategory
+order by productid, productname, category, subcategory

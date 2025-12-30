@@ -4,4 +4,4 @@
     )
 }}
 SELECT  * FROM 
-RAW_DB.GLOBALMART.ORDERS
+{{ source('globalmart', 'orders') }}
